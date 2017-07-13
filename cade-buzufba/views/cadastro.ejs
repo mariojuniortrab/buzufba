@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+	<html lang="pt-br">
+		<head>
+			<meta charset="utf-8"/>
+			<title>Cade o Buzufba</title>
+		</head>
+	<body>
+
+		<h1>Bem vindo</h1> 
+		<br/><br/>
+		
+		<h2>Adicionar Horario de um Roteiro</h2>
+		
+		<form action="/cadastro/salvar" method="POST">
+			
+			<label>Roteiro</label>
+		
+			<select id= "id_roteiro" name= "id_roteiro" >
+			  <% for(var i=0; i< roteiros.length; i++){ %>
+			<option value= <%= roteiros[i].id %> > <%=  roteiros[i].nome%></option>
+			
+		<% } %>
+			</select>
+			<br/>
+			<label>Horario</label>
+			<input type="time" name="hora">			
+			<br/>
+			<label>Entra em São Lázaro</label></br>
+			<input type="radio" name="entra_sao_laz" value="s"> Sim<br>  
+			<input type="radio" name="entra_sao_laz" value="n"> Não<br>
+			<br/>
+				<input type="submit" value="Enviar" />
+		</form>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<% include header.ejs %>
+<% include navbar.ejs %>
+<% include sidebar.ejs %>
+<h3></h3>
+
+ <div class="row">
+    <div class="col m3 "></div>
+    <div class="col s12 m6 ">
+        <div class="card">
+        <div class="card-content">
+            <span class="card-title">Horários</span>
+            <a href="/novo_horario" class="waves-effect waves-light btn blue darken-1 right">Cadastrar horário</a>
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Roteiro</th>
+                        <th>Horário</th>
+                        <th>Entra em São Lázaro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% for(var i=0; i< horarios.length; i++){ %>
+                    <tr>
+                        <td><%= horarios[i].nome_roteiro%></td>
+                        <td><%= horarios[i].hora%></td>
+                        <td><%= horarios[i].entra_sao_laz == 's' ? 'Sim' : 'Não' %></td>
+                        <td><a href="/editar_horario/<%= horarios[i].id%>">Editar</a></td>
+                    </tr>
+                <% } %>
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+
+    <div class="col m3 "></div>
+</div>
+
+
+<% include footer.ejs %>    

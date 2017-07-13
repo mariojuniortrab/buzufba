@@ -1,0 +1,46 @@
+<% include header.ejs %>
+<% include navbar.ejs %>
+<% include sidebar.ejs %>
+<h3></h3>
+
+<form action="/salvar_itinerario" method="post">
+<div class="row">
+    <div class="col m3 "></div>
+    <div class="col s12 m6 ">
+        <div class="card">
+            <div class="card-content">
+            <span class="card-title">Itinerário</span>
+                <input type="hidden" name="id" value= "<%= itinerario[0].id || null%>" <%= itinerario[0].id ? '' : 'disabled' %>>
+
+                <label>Roteiro</label>
+                <select id= "id_roteiro" name= "id_roteiro" >
+                    <% for(var i=0; i< roteiros.length; i++){ %>
+                        <option value= "<%= roteiros[i].id %>" <%= itinerario[0].id_roteiro == roteiros[i].id ? 'selected': null%> > <%=  roteiros[i].nome%></option>
+                    <% } %>
+                </select>
+                <br/>
+                
+                <label>Ponto</label>
+                <select id= "id_ponto" name= "id_ponto" >
+                    <% for(var i=0; i< pontos.length; i++){ %>
+                        <option value= "<%= pontos[i].id %>" <%= itinerario[0].id_ponto == pontos[i].id ? 'selected': null%> > <%=  pontos[i].nome%></option>
+                    <% } %>
+                </select>
+                <br/>
+                
+                <label>Ordem</label>
+                <input type="number" name='ordem' value= "<%= itinerario[0].ordem || null%>">
+            </div>
+            <div class="card-action">
+                <div>
+                    <button class="btn waves-effect waves-light blue darken-1 ">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col m3 "></div>
+</div>
+</form>     
+
+<% include footer.ejs %>    

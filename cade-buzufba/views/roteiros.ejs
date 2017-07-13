@@ -1,0 +1,38 @@
+<% include header.ejs %>
+<% include navbar.ejs %>
+<% include sidebar.ejs %>
+<h3></h3>
+
+ <div class="row">
+    <div class="col m3 "></div>
+    <div class="col s12 m6 ">
+        <div class="card">
+        
+        <div class="card-content">
+        <span class="card-title">Roteiros</span>
+        <a href="/novo_roteiro" class="waves-effect waves-light btn blue darken-1 right">Cadastrar roteiro</a>
+            <table class="striped">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i=0; i< roteiros.length; i++){ %>
+                        <tr>
+                            <td><%= roteiros[i].nome%></td>
+                            <td><a href="/editar_roteiro/<%= roteiros[i].id%>">Editar</a></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+        
+        </div>
+    </div>
+
+    <div class="col m3 "></div>
+</div>
+
+
+<% include footer.ejs %>              

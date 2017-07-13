@@ -1,0 +1,47 @@
+<% include header.ejs %>
+<% include navbar.ejs %>
+<% include sidebar.ejs %>
+<h3></h3>
+
+		
+<form action="/salvar_apontamento" method="POST">
+<div class="row">
+    <div class="col m3 "></div>
+    <div class="col s12 m6 ">
+        <div class="card">
+            <div class="card-content">
+            	<span class="card-title">Adicionar localização do Roteiro</span>
+		
+				<div class="input-field">
+					<select id= "id_roteiro" name= "id_roteiro" >
+					 	<% for(var i=0; i< roteiros.length; i++){ %>
+							<option value= <%= roteiros[i].id %> > <%=  roteiros[i].nome%></option>
+						<% } %>
+					</select>
+					<label>Roteiro</label>
+                </div>
+				<div class="input-field">
+					<select id= "id_ponto" name= "id_ponto">
+						<% for(var i=0; i< pontos.length; i++){ %>
+						  <option value= <%= pontos[i].id %> > <%=  pontos[i].nome%></option>
+						 
+						<% } %>
+					</select>
+					<label>Ponto</label>
+                </div>
+			
+			
+            </div>
+            <div class="card-action">
+                <div>
+                    <button class="btn waves-effect waves-light blue darken-1 ">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col m3 "></div>
+</div>
+</form>                       
+
+<% include footer.ejs %>    
